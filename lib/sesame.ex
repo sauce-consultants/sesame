@@ -48,7 +48,7 @@ defmodule Sesame do
   """
   def verify(signature, resource) do
     policy = Sesame.Config.policy
-    
+
     unpacked_jwt = Sesame.JWT.check(signature)
 
     unpacked_resource = unpacked_jwt.claims["resource"]
@@ -59,5 +59,32 @@ defmodule Sesame do
     else
       :error
     end
+  end
+
+  @doc """
+  Deserialises the signer from the signature on the connection
+  """
+  def current_signer(conn) do
+    serializer = Sesame.Config.serializer
+    signature = conn |> find_signature
+    unpacked_jwt = Sesame.JWT.check(signature)
+
+    unpacked_resource = unpacked_jwt.claims["resource"]
+    unpacked_signer   = unpacked_jwt.claims["signer"]
+
+    serializer.from_token(unpacked_signer)
+  end
+
+  defp find_signature(conn) do
+    conn.query_string
+    |> String.split("&")
+    |> Enum.map(fn(part) ->
+      case part |> String.split("=") do
+        ["signature", signature] -> signature
+        _ -> nil
+      end
+    end)
+    |> Enum.reject(fn(x) -> x == nil end)
+    |> List.first
   end
 end

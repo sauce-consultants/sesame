@@ -8,7 +8,7 @@ defmodule Sesame.TestSesameSerializer do
     {:ok, "User:#{aud[:id]}"}
   end
 
-  def from_token(aud), do: {:ok, aud}
+  def from_token("User:" <> id), do: {:ok, id}
 end
 
 defmodule Sesame.TestSesamePolicy do
@@ -19,6 +19,5 @@ defmodule Sesame.TestSesamePolicy do
   def is_permitted?(_, "User:1"), do: :ok
   def is_permitted?(_, _), do: :error
 end
-
 
 ExUnit.start()
