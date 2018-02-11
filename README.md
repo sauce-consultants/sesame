@@ -2,8 +2,6 @@
 
 Basic resource / URL signing for Plug-based Elixir apps.
 
-The typical use-case is to protect
-
 ## Installation
 
 The package can be installed by adding `sesame` to your list of dependencies in `mix.exs`:
