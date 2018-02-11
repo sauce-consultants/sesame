@@ -18,6 +18,18 @@ defmodule Sesame.Mixfile do
     [extra_applications: [:logger]]
   end
 
+  defp description do
+    """
+    Basic resource / URL signing for Plug-based Elixir apps.
+    """
+  end
+
+  defp package do
+    [maintainers: ["Matt Weldon"],
+     licenses: ["MIT"],
+     links: %{"GitHub" => "https://github.com/sauce-consultants/sesame"}]
+  end
+
   # Dependencies can be Hex packages:
   #
   #   {:my_dep, "~> 0.3.0"}
