@@ -33,6 +33,9 @@ defmodule Sesame.Mixfile do
      links: %{"GitHub" => "https://github.com/sauce-consultants/sesame"}]
   end
 
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_),     do: ["lib"]
+
   # Dependencies can be Hex packages:
   #
   #   {:my_dep, "~> 0.3.0"}
