@@ -28,6 +28,9 @@ defmodule Sesame.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:joken, "~> 1.5"},
+      {:poison, "~> 3.1"}
+    ]
   end
 end

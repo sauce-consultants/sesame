@@ -1,6 +1,8 @@
 # Sesame
 
-**TODO: Add description**
+Basic resource / URL signing for Plug-based Elixir apps.
+
+The typical use-case is to protect
 
 ## Installation
 
