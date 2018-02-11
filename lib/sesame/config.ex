@@ -16,4 +16,5 @@ defmodule Sesame.Config do
     config = :sesame |> Application.get_env(Sesame)
     config[key]
   end
+  
 end
