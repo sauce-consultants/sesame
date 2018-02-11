@@ -5,6 +5,9 @@ defmodule Sesame.Mixfile do
     [app: :sesame,
      version: "0.1.0",
      elixir: "~> 1.4",
+     description: description(),
+     elixirc_paths: elixirc_paths(Mix.env),
+     package: package(),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps()]
