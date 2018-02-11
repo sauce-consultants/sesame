@@ -68,7 +68,7 @@ A new config block will need to be added in order to get these parts working:
 
 ```elixir
 config :sesame, Sesame,
-  secret_key: "correct-battery-horse-staple",
+  secret_key: "correct-horse-battery-staple",
   serializer: MyApp.SesameSerializer,
   policy: MyApp.SesamePolicy
 ```
