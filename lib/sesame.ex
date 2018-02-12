@@ -49,15 +49,17 @@ defmodule Sesame do
   def verify(signature, resource) do
     policy = Sesame.Config.policy
 
-    unpacked_jwt = Sesame.JWT.check(signature)
-
-    unpacked_resource = unpacked_jwt.claims["resource"]
-    unpacked_signer   = unpacked_jwt.claims["signer"]
-
-    if unpacked_resource == resource do
-      policy.is_permitted?(resource, unpacked_signer)
-    else
-      :error
+    case Sesame.JWT.check(signature) do
+      :error -> :error
+      unpacked_jwt ->
+        unpacked_resource = unpacked_jwt.claims["resource"]
+        unpacked_signer   = unpacked_jwt.claims["signer"]
+    
+        if unpacked_resource == resource do
+          policy.is_permitted?(resource, unpacked_signer)
+        else
+          :error
+        end
     end
   end
 
@@ -87,5 +89,5 @@ defmodule Sesame do
     |> Enum.reject(fn(x) -> x == nil end)
     |> List.first
   end
-  
+
 end
