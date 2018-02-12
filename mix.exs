@@ -48,7 +48,7 @@ defmodule Sesame.Mixfile do
   defp deps do
     [
       {:joken, "~> 1.5"},
-      {:poison, "~> 3.1"},
+      {:poison, "~> 2.0"},
       {:plug, "~> 1.4"},
       {:ex_doc, ">= 0.0.0", only: :dev}
     ]
