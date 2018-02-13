@@ -16,7 +16,10 @@ defmodule Sesame.Plug.EnsureSigned do
     case Sesame.verify(signature, resource) do
       :ok -> conn
       :error ->
-        conn |> put_status(401) |> halt
+        conn
+        |> halt
+        |> put_resp_content_type("text/plain")
+        |> send_resp(403, "Unauthorized")
     end
   end
 

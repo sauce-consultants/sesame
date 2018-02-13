@@ -25,7 +25,7 @@ defmodule Unit.PlugTest do
 
       ensured_conn = EnsureSigned.call(conn, %{})
       assert ensured_conn.halted == true
-      assert ensured_conn.status == 401
+      assert ensured_conn.status == 403
     end
 
     test "ensure we can access the signature after we've checked it's been signed" do
@@ -48,7 +48,7 @@ defmodule Unit.PlugTest do
       ensured_conn = EnsureSigned.call(conn, %{})
 
       assert ensured_conn.halted == true
-      assert ensured_conn.status == 401
+      assert ensured_conn.status == 403
     end
 
   end
