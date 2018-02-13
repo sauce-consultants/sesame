@@ -10,6 +10,8 @@ defmodule Sesame.JWT do
     |> get_compact
   end
 
+  def check(nil), do: :error
+  def check(""), do: :error
   def check(signed_token) do
     signed_token
     |> token
