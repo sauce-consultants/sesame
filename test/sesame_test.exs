@@ -47,6 +47,12 @@ defmodule SesameTest do
       assert verification_result == :error
     end
 
+    test "fails gracefully when nil signature passed" do 
+      verification_result = Sesame.verify(nil, "http://google.com")
+
+      assert verification_result == :error
+    end
+
   end
 
 end

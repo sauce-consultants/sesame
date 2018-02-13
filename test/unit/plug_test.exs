@@ -40,6 +40,17 @@ defmodule Unit.PlugTest do
       assert response == {:ok, "1"}
     end
 
+    test "fails gracefully when no signature is passed" do
+      result = Sesame.sign("http://wearesauce.io/foo", %{name: "Matt Weldon", id: 1})
+
+      conn = conn(:get, "http://wearesauce.io/foo")
+
+      ensured_conn = EnsureSigned.call(conn, %{})
+
+      assert ensured_conn.halted == true
+      assert ensured_conn.status == 401
+    end
+
   end
 
 end

@@ -46,6 +46,7 @@ defmodule Sesame do
   @doc """
   Verifies a resource can be accessed based on the signature.
   """
+  def verify(nil, _), do: :error
   def verify(signature, resource) do
     policy = Sesame.Config.policy
 
