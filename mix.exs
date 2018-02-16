@@ -3,7 +3,7 @@ defmodule Sesame.Mixfile do
 
   def project do
     [app: :sesame,
-     version: "0.2.3",
+     version: "0.2.4",
      elixir: "~> 1.4",
      description: description(),
      elixirc_paths: elixirc_paths(Mix.env),
@@ -22,7 +22,7 @@ defmodule Sesame.Mixfile do
   end
 
   defp description do
-    """
+    "
     Basic resource / URL signing for Plug-based Elixir apps.
     """
   end
