@@ -19,7 +19,7 @@ defmodule Sesame.Plug.EnsureSigned do
         conn
         |> halt
         |> put_resp_content_type("text/plain")
-        |> send_resp(403, "Unauthorized")
+        |> send_resp(403, "You are unauthorized to access the following resource: #{resource}")
     end
   end
 

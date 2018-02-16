@@ -55,13 +55,18 @@ defmodule Sesame do
         unpacked_resource = unpacked_jwt.claims["resource"]
         unpacked_signer   = unpacked_jwt.claims["signer"]
     
-        if unpacked_resource == resource do
+        if strip_scheme(unpacked_resource) == strip_scheme(resource) do
           policy.is_permitted?(resource, unpacked_signer)
         else
           :error
         end
     end
   end
+
+  def strip_scheme("http://" <> resource), do: resource
+  def strip_scheme("https://" <> resource), do: resource
+  def strip_scheme("ftp://" <> resource), do: resource
+  def strip_scheme(resource), do: resource
 
   @doc """
   Deserialises the signer from the signature on the connection
