@@ -22,7 +22,7 @@ defmodule Sesame.Mixfile do
   end
 
   defp description do
-    "
+    """
     Basic resource / URL signing for Plug-based Elixir apps.
     """
   end
