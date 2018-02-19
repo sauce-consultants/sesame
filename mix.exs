@@ -3,7 +3,7 @@ defmodule Sesame.Mixfile do
 
   def project do
     [app: :sesame,
-     version: "0.2.4",
+     version: "0.2.5",
      elixir: "~> 1.4",
      description: description(),
      elixirc_paths: elixirc_paths(Mix.env),
