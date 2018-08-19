@@ -3,7 +3,7 @@ defmodule Sesame.Mixfile do
 
   def project do
     [app: :sesame,
-     version: "0.2.5",
+     version: "0.3.0",
      elixir: "~> 1.4",
      description: description(),
      elixirc_paths: elixirc_paths(Mix.env),
@@ -48,7 +48,7 @@ defmodule Sesame.Mixfile do
   defp deps do
     [
       {:joken, "~> 1.5"},
-      {:poison, "~> 2.0"},
+      {:poison, "~> 3.1"},
       {:plug, "~> 1.4"},
       {:ex_doc, ">= 0.0.0", only: :dev}
     ]
