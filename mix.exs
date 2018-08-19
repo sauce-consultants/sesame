@@ -50,7 +50,7 @@ defmodule Sesame.Mixfile do
       {:joken, "~> 1.5"},
       {:poison, "~> 3.1"},
       {:plug, "~> 1.4"},
-      {:ex_doc, ">= 0.0.0", only: :dev}
+      {:ex_doc, "~> 0.18.0", only: :dev}
     ]
   end
 end
