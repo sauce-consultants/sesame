@@ -54,7 +54,7 @@ defmodule Sesame do
       unpacked_jwt ->
         unpacked_resource = unpacked_jwt.claims["resource"]
         unpacked_signer   = unpacked_jwt.claims["signer"]
-    
+
         if strip_scheme(unpacked_resource) == strip_scheme(resource) do
           policy.is_permitted?(resource, unpacked_signer)
         else
