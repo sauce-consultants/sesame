@@ -47,11 +47,11 @@ defmodule Sesame.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:jose, "1.9.0", override: true},
+      {:jose, "1.9.0"},
       {:joken, "~> 2.1"},
       {:poison, "~> 3.1"},
       {:plug, "~> 1.4"},
-      {:ex_doc, "~> 0.18.0", only: :dev}
+      {:ex_doc, "~> 0.19", only: :dev}
     ]
   end
 end
